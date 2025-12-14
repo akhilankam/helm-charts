@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: "<ACCOUNT_ID>.dkr.ecr.<region>.amazonaws.com/fastapi-app"
+  repository: "031293725770.dkr.ecr.ap-south-1.amazonaws.com/dev/my-repo"
   tag: "latest"
   pullPolicy: IfNotPresent
 
@@ -14,7 +14,7 @@ ingress:
   enabled: true
   # Use ALB by setting ingressClassName or annotation below
   ingressClassName: "" # optional: set to "alb" if your cluster uses that
-  hostname: "fastapi.example.com" # set in values files or CI
+  hostname: "" # set in values files or CI
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -58,11 +58,11 @@ autoscaling:
 
 env:
   - name: DATABASE_HOST
-    value: ""
+    value: "app-db.c8iyk5zpd1zj.ap-south-1.rds.amazonaws.com"
   - name: DATABASE_PORT
     value: "5432"
   - name: DATABASE_NAME
-    value: "appdb"
+    value: "pgdb"
   - name: DATABASE_USER
     valueFrom:
       secretKeyRef:
