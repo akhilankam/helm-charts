@@ -2,23 +2,23 @@
 Return the name of the chart
 */}}
 {{- define "fastapi-app.name" -}}
-{{ .Chart.Name }}
-{{- end }}
+{{- .Chart.Name -}}
+{{- end -}}
 
 {{/*
 Create a fully qualified name for resources
 */}}
 {{- define "fastapi-app.fullname" -}}
 {{- if .Values.fullnameOverride }}
-{{ .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else }}
 {{- if .Values.nameOverride }}
-{{ .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else }}
-{{ printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" -}}
 {{- end }}
 {{- end }}
-{{- end }}
+{{- end -}}
 
 {{/*
 Common chart labels
@@ -44,8 +44,8 @@ ServiceAccount name
 */}}
 {{- define "fastapi-app.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{ default (include "fastapi-app.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "fastapi-app.fullname" .) .Values.serviceAccount.name -}}
 {{- else }}
-{{ default "default" .Values.serviceAccount.name }}
+{{- default "default" .Values.serviceAccount.name -}}
 {{- end }}
-{{- end }}
+{{- end -}}
