@@ -26,7 +26,8 @@ ingress:
 serviceAccount:
   create: true
   name: ""
-  annotations: {} # e.g. {"eks.amazonaws.com/role-arn": "arn:aws:iam::123456:role/your-irsa-role"}
+  annotations:
+    eks.amazonaws.com/role-arn: "{{ .Values.iamRoleArn }}"
 
 resources:
   requests:
