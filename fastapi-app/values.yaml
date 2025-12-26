@@ -57,22 +57,8 @@ autoscaling:
   targetCPUUtilizationPercentage: 50
 
 env:
-  - name: DATABASE_HOST
-    value: "app-db.c8iyk5zpd1zj.ap-south-1.rds.amazonaws.com"
-  - name: DATABASE_PORT
-    value: "5432"
-  - name: DATABASE_NAME
-    value: "pgdb"
-  - name: DATABASE_USER
-    valueFrom:
-      secretKeyRef:
-        name: app-db-secret
-        key: username
-  - name: DATABASE_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: app-db-secret
-        key: password
+  - name: DB_SECRET_NAME
+    value: "app-db-secret"
 
 # Prometheus annotations for scraping /metrics
 prometheus:
