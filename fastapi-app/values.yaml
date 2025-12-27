@@ -62,11 +62,5 @@ env:
     value: "app-db-secret"
 
 # Prometheus annotations for scraping /metrics
-prometheus:
+monitoring:
   enabled: true
-  path: /metrics
-  port: 8000
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/path: "/metrics"
-    prometheus.io/port: "8000"
